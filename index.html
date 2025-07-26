@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Developer Portfolio | 3D Interactive Experience</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+  <!-- 3D Background Canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Loader -->
+  <div class="loader" id="loader">
+    <div class="loader-content">
+      <h2>Loading Experience</h2>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+      <div class="progress-text" id="progress-text">0%</div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header id="header">
+    <div class="container">
+      <div class="logo">
+        <span class="gradient-text">CodePhatom</span>
+      </div>
+      <nav class="desktop-nav">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><button id="theme-toggle" aria-label="Toggle theme">
+              <i class="fas fa-sun"></i>
+              <i class="fas fa-moon"></i>
+            </button></li>
+        </ul>
+      </nav>
+      <div class="mobile-menu-btn" id="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav" id="mobile-nav">
+    <div class="mobile-nav-close" id="mobile-nav-close">
+      <i class="fas fa-times"></i>
+    </div>
+    <ul>
+      <li><a href="#about" class="mobile-nav-link">About</a></li>
+      <li><a href="#projects" class="mobile-nav-link">Projects</a></li>
+      <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
+      <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+      <li><button id="mobile-theme-toggle" aria-label="Toggle theme">
+          <i class="fas fa-sun"></i>
+          <i class="fas fa-moon"></i>
+        </button></li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="container">
+        <div class="glass-panel hero-content">
+          <h1>Hi, I'm <span class="gradient-text">Amos Orji Frank</span></h1>
+          <h2 class="typewriter" id="typewriter">Full Stack Developer</h2>
+          <p>I build exceptional digital experiences with modern technologies. Specializing in creating interactive,
+            high-performance web applications with cutting-edge tools and frameworks.</p>
+          <div class="hero-buttons">
+            <a href="#projects" class="btn btn-primary">View My Work</a>
+            <a href="#" class="btn btn-outline">Download Resume</a>
+          </div>
+          <div class="social-icons">
+            <a href="https://github.com/Orjikeyz" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/amos-orji-79017519b/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://wa.me/+2342136621556?text=Hi%2C%20I'm%20interested%20in%20working%20with%20you.%20I%20saw%20your%20portfolio%20and%20would%20love%20to%20discuss%20a%20project%21" aria-label="Whatsapp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="scroll-indicator">
+          <i class="fas fa-chevron-down"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h2>About Me</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="about-content">
+          <div class="about-image" data-aos="fade-right">
+            <div class="image-container">
+              <img src="./images/profileiMage.png" alt="Developer Portrait">
+              <div class="experience-badge">5+ Years</div>
+            </div>
+          </div>
+          <div class="about-text" data-aos="fade-left">
+            <h3>A passionate Full Stack Developer based in Nigeria</h3>
+            <p>I am a dedicated full-stack developer with over 5 years of experience creating robust and dynamic web applications.
+              My journey in software development began with a fascination for building solutions that live on the internet and make a real impact.
+            </p>
+            <p>I specialize in core web technologies including <strong>HTML, CSS, JavaScript, and PHP</strong>, with solid backend expertise in <strong>Node.js</strong>, <strong>Express.js</strong>, and <strong>Laravel</strong>. I work confidently with both <strong>MongoDB</strong> and <strong>MySQL</strong>, enabling me to build scalable, secure, and data-driven applications across various industries.</p>
+            <p>I'm passionate about crafting fast, accessible, and visually engaging applications that deliver exceptional user experiences. Beyond coding, I enjoy exploring new technologies, mentoring upcoming developers, and sharing knowledge through open-source contributions and technical writing.</p>
+
+            <!-- <p>In addition to my passion for tech, I am currently a student. Balancing my academic journey with my tech career has shaped me into a disciplined and purpose-driven individual, capable of solving both human-centered and technical challenges with empathy and precision.</p> -->
+            
+            <!-- <div class="about-details">
+              <div class="detail-item">
+                <h4>Education</h4>
+                <p>B.S. Computer Science<br>University of Technology</p>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h2>Featured Projects</h2>
+          <div class="section-divider"></div>
+          <p>Here are some of my recent projects that showcase my skills and expertise in building modern, responsive,
+            and feature-rich applications.</p>
+        </div>
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <div class="project-card" data-aos="fade-up">
+            <div class="project-image">
+              <img src="https://via.placeholder.com/600x400" alt="E-Commerce Platform">
+            </div>
+            <div class="project-content">
+              <h3>E-Commerce Platform</h3>
+              <p>A full-featured e-commerce platform with product management, cart functionality, and payment
+                processing.</p>
+              <div class="project-tags">
+                <span>React</span>
+                <span>Node.js</span>
+                <span>MongoDB</span>
+                <span>Stripe</span>
+              </div>
+              <div class="project-links">
+                <!-- <a href="#" class="btn btn-outline btn-sm"><i class="fab fa-github"></i> Code</a> -->
+                <a href="#" class="btn btn-primary btn-sm"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="projects-more" data-aos="fade-up">
+          <a href="#" class="btn btn-outline">View All Projects</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h2>Technologies & Tools</h2>
+          <div class="section-divider"></div>
+          <p>Here are the technologies, programming languages, and tools I work with.</p>
+        </div>
+    
+        <div class="tools-grid" data-aos="fade-up">
+          <div class="tool-item">HTML</div>
+          <div class="tool-item">CSS</div>
+          <div class="tool-item">JavaScript</div>
+          <div class="tool-item">Node.js</div>
+          <div class="tool-item">Express</div>
+          <div class="tool-item">PHP</div>
+          <div class="tool-item">Laravel</div>
+          <div class="tool-item">MongoDB</div>
+          <div class="tool-item">MySQL</div>
+          <div class="tool-item">VS Code</div>
+          <div class="tool-item">RESTful APIs</div>
+          <div class="tool-item">Git</div>
+          <div class="tool-item">GitHub</div>
+          <div class="tool-item">Figma</div>
+          <div class="tool-item">Vercel</div>
+          <div class="tool-item">Netlify</div>
+          <div class="tool-item">Postman</div>
+        </div>
+      </div>
+    </section>
+    
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h2>Get In Touch</h2>
+          <div class="section-divider"></div>
+          <p>Have a project in mind or want to discuss potential opportunities? Feel free to reach out to me using the
+            contact form or through my contact information.</p>
+        </div>
+
+        <div class="contact-container">
+          <div class="contact-info glass-panel" data-aos="fade-right">
+            <h3>Contact Information</h3>
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="info-content">
+                <h4>Email</h4>
+                <a href="mailto:codephatom7@gmail.com">codephatom7@gmail.com</a>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="info-content">
+                <h4>Phone</h4>
+                <a href="tel:+2342136621556">+234 813 6621 556</a>
+              </div>
+            </div>
+
+
+            <div class="contact-social">
+              <h4>Follow Me</h4>
+              <div class="social-links">
+                <a href="https://github.com/Orjikeyz" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/amos-orji-79017519b/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://wa.me/+2342136621556?text=Hi%2C%20I'm%20interested%20in%20working%20with%20you.%20I%20saw%20your%20portfolio%20and%20would%20love%20to%20discuss%20a%20project%21" aria-label="Whatsapp"><i class="fab fa-whatsapp"></i></a>
+                <!-- <a href="#" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a> -->
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form glass-panel" data-aos="fade-left">
+            <h3>Send Message</h3>
+            <form id="contact-form">
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="John Doe" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" placeholder="john@example.com" required>
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="Project Inquiry" required>
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Your message here..." rows="5" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">
+                <i class="fas fa-paper-plane"></i> Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <span class="gradient-text">CodePhatom</span>
+        </div>
+        <div class="footer-text">
+          <p>&copy; <span id="current-year"></span> CodePhatom. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="main.js"></script>
+  <script src="./project.js"></script>
+  <script>
+    let projectGrid = document.querySelector(".projects-grid")
+
+    projectGrid.innerHTML = ""
+      projects.forEach(project => {
+          projectGrid.innerHTML += `
+                    <div class="project-card" data-aos="fade-up">
+            <div class="project-image">
+              <img src="${project.imgUrl}" alt="E-Commerce Platform">
+            </div>
+            <div class="project-content">
+              <h3>${project.name}</h3>
+              <p>${project.description}</p>
+              <div class="project-tags">
+                ${project.tags.map(tag => `<span>${tag}</span>`).join("")}
+              </div>
+              <div class="project-links">
+                <!-- <a href="${project.url}" class="btn btn-outline btn-sm"><i class="fab fa-github"></i> Code</a> -->
+                <a href="${project.url}" class="btn btn-primary btn-sm"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+              </div>
+            </div>
+          </div>
+          `        
+      });
+
+
+      document.getElementById('contact-form').addEventListener('submit', function (e) {
+    e.preventDefault(); // prevent default form submission
+
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const subject = document.getElementById('subject').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    const phone = '+2342136621556'; // <- your WhatsApp number
+    const text = `Hello, I'm ${name}%0AEmail: ${email}%0ASubject: ${subject}%0AMessage: ${message}`;
+
+    const url = `https://wa.me/${phone}?text=${text}`;
+
+    window.open(url, '_blank'); // open WhatsApp chat in a new tab
+  });
+  </script>
+</body>
+
+</html>
