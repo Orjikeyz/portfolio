@@ -26,4 +26,11 @@ const projects = [{
     imgUrl: "./images/university.png",
     url: "2421962.linux.studentwebserver.co.uk/universitysearchapi/index.php"
   },
+  {
+    name: "Judydoesbraids",
+    description: "JUDYDOESBRAIDS is a modern, SEO-optimized single-page website for a premium hair braiding business, styled with elegant black and gold branding. It features responsive design, a service showcase, dynamic gallery, and an interactive booking system. Optimized for performance, branding, and search visibility.",
+    tags: ["Html", "Css", "Javascript", "PHP", "Vercel"],
+    imgUrl: "./images/judyhairs.jpg",
+    url: "https://judydoesbraids.vercel.app/"
+  },
 ]
