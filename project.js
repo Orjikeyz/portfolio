@@ -31,6 +31,6 @@ const projects = [{
     description: "JUDYDOESBRAIDS is a modern, SEO-optimized single-page website for a premium hair braiding business, styled with elegant black and gold branding. It features responsive design, a service showcase, dynamic gallery, and an interactive booking system. Optimized for performance, branding, and search visibility.",
     tags: ["Html", "Css", "Javascript", "PHP", "SQL", "Vercel"],
     imgUrl: "./images/judyhairs.jpg",
-    url: "https://judydoesbraids.com"
+    url: "https://judydoesbraids.com/test"
   },
 ]
