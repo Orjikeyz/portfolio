@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects Showcase</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #060608;
+      --surface: #0d0d12;
+      --card: #111118;
+      --border: rgba(255,255,255,0.06);
+      --accent: #008cff;
+      --accent2: #00f0ff;
+      --text: #f0f0f0;
+      --muted: #666680;
+      --tag-bg: rgba(255, 255, 255, 0.08);
+      --tag-border: transparent;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── Grain overlay ── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 999; opacity: .4;
+    }
+
+    /* ── Ambient blobs ── */
+    .blob {
+      position: fixed; border-radius: 50%; filter: blur(120px);
+      pointer-events: none; z-index: 0; animation: drift 14s ease-in-out infinite alternate;
+    }
+    .blob-1 { width: 500px; height: 500px; background: rgba(200,255,0,.06); top: -150px; left: -100px; animation-duration: 16s; }
+    .blob-2 { width: 400px; height: 400px; background: rgba(0,240,255,.05); bottom: 100px; right: -80px; animation-duration: 20s; animation-direction: alternate-reverse; }
+    .blob-3 { width: 300px; height: 300px; background: rgba(180,120,255,.04); top: 50%; left: 50%; animation-duration: 18s; }
+
+    @keyframes drift {
+      from { transform: translate(0,0) scale(1); }
+      to   { transform: translate(40px,30px) scale(1.08); }
+    }
+
+    /* ── Header ── */
+    header {
+      position: relative; z-index: 10;
+      padding: 80px 5vw 0;
+      text-align: center;
+    }
+
+    .eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px; letter-spacing: .25em;
+      color: var(--accent); text-transform: uppercase;
+      display: inline-flex; align-items: center; gap: 10px;
+      margin-bottom: 18px;
+      opacity: 0; animation: fadeUp .6s .1s forwards;
+    }
+    .eyebrow::before, .eyebrow::after {
+      content: ''; display: block;
+      width: 40px; height: 1px; background: var(--accent);
+    }
+
+    h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(64px, 10vw, 140px);
+      line-height: .92; letter-spacing: -.01em;
+      background: linear-gradient(135deg, #fff 40%, var(--accent) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      opacity: 0; animation: fadeUp .7s .2s forwards;
+    }
+
+    .subtitle {
+      color: var(--muted); font-size: 16px; font-weight: 300;
+      max-width: 480px; margin: 20px auto 0; line-height: 1.7;
+      opacity: 0; animation: fadeUp .7s .35s forwards;
+    }
+
+    /* divider */
+    .divider {
+      display: flex; align-items: center; gap: 16px;
+      max-width: 1400px; margin: 60px auto 0; padding: 0 5vw;
+      opacity: 0; animation: fadeUp .6s .5s forwards;
+    }
+    .divider::before, .divider::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+    .divider span {
+      font-family: 'Space Mono', monospace; font-size: 10px;
+      color: var(--muted); letter-spacing: .15em; white-space: nowrap;
+    }
+
+    /* ── Grid ── */
+    .projects-grid {
+      position: relative; z-index: 10;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr));
+      gap: 24px;
+      max-width: 1400px; margin: 40px auto 100px; padding: 0 5vw;
+    }
+
+    /* ── Card ── */
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden;
+      display: flex; flex-direction: column;
+      position: relative;
+      cursor: pointer;
+      opacity: 0; transform: translateY(40px);
+      transition: transform .4s cubic-bezier(.16,1,.3,1),
+                  box-shadow .4s ease, border-color .3s ease;
+      will-change: transform;
+    }
+    .project-card.visible { opacity: 1; transform: translateY(0); }
+
+    .project-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(200,255,0,0.03) 0%, transparent 60%);
+      opacity: 0; transition: opacity .4s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px) scale(1.01);
+      /* box-shadow: 0 30px 60px rgba(0,0,0,.6), 0 0 0 1px rgba(200,255,0,.15),
+                  0 0 40px rgba(200,255,0,.06); */
+      border-color: transparent;
+    }
+    .project-card:hover::before { opacity: 1; }
+
+    /* image */
+    .project-image {
+      position: relative; overflow: hidden; height: 220px;
+    }
+    .project-image img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .6s cubic-bezier(.16,1,.3,1), filter .4s;
+      filter: saturate(.8) brightness(.9);
+    }
+    .project-card:hover .project-image img {
+      transform: scale(1.07);
+      filter: saturate(1.1) brightness(1);
+    }
+
+    /* shimmer on hover */
+    .project-image::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,.08) 50%, transparent 70%);
+      transform: translateX(-100%);
+      transition: transform .6s ease;
+    }
+    .project-card:hover .project-image::after { transform: translateX(100%); }
+
+    /* number badge */
+    .card-num {
+      position: absolute; top: 14px; left: 16px;
+      font-family: 'Space Mono', monospace; font-size: 11px;
+      color: var(--accent); background: rgba(0,0,0,.6);
+      padding: 3px 8px; border-radius: 4px;
+      backdrop-filter: blur(8px);
+      border: 1px solid transparent;
+    }
+
+    /* content */
+    .project-content {
+      padding: 24px 24px 20px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+
+    .project-content h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 26px; letter-spacing: .03em;
+      line-height: 1.1; margin-bottom: 10px;
+      background: linear-gradient(90deg, #fff, #ccc);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      transition: background .3s;
+    }
+    .project-card:hover .project-content h3 {
+      background: linear-gradient(90deg, var(--accent), #fff);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+
+    .project-content p {
+      font-size: 13.5px; line-height: 1.7; color: var(--muted);
+      font-weight: 300; flex: 1;
+      display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* tags */
+    .project-tags {
+      display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px;
+    }
+    .project-tags span {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px; letter-spacing: .08em;
+      color: var(--accent); background: var(--tag-bg);
+      border: 1px solid var(--tag-border);
+      padding: 3px 9px; border-radius: 4px;
+      text-transform: uppercase;
+      transition: background .2s, color .2s;
+    }
+    .project-card:hover .project-tags span {
+      /* background: rgba(200,255,0,.14); */
+    }
+
+    /* links */
+    .project-links {
+      margin-top: 20px; display: flex; gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 9px 18px; border-radius: 8px;
+      font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: all .25s cubic-bezier(.16,1,.3,1);
+      position: relative; overflow: hidden;
+    }
+    .btn::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(255,255,255,.08);
+      opacity: 0; transition: opacity .2s;
+    }
+    .btn:hover::after { opacity: 1; }
+
+    .btn-primary {
+      background: var(--accent); color: #000;
+      color: white;
+      /* box-shadow: 0 4px 20px rgba(200,255,0,.25); */
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      /* box-shadow: 0 8px 30px rgba(200,255,0,.45); */
+      color: white;
+    }
+
+    .btn-outline {
+      background: transparent; color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-outline:hover {
+      border-color: rgba(255,255,255,.3);
+      transform: translateY(-2px);
+    }
+
+    /* ── Count bar ── */
+    .count-strip {
+      position: relative; z-index: 10;
+      display: flex; justify-content: center; align-items: center;
+      gap: 32px; padding: 0 5vw 60px;
+      opacity: 0; animation: fadeUp .7s .6s forwards;
+    }
+    .count-item { text-align: center; }
+    .count-item .num {
+      font-family: 'Bebas Neue', sans-serif; font-size: 52px;
+      color: var(--accent); line-height: 1;
+      display: block;
+    }
+    .count-item .label {
+      font-family: 'Space Mono', monospace; font-size: 10px;
+      color: var(--muted); letter-spacing: .15em; text-transform: uppercase;
+    }
+    .count-sep { width: 1px; height: 48px; background: var(--border); }
+
+    /* ── Floating CTA bar ── */
+    .cta-bar {
+      position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%);
+      background: rgba(13,13,18,.85); backdrop-filter: blur(20px);
+      border: 1px solid var(--border); border-radius: 999px;
+      padding: 10px 24px;
+      display: flex; align-items: center; gap: 14px;
+      z-index: 100;
+      animation: slideUp .6s 1s both;
+      box-shadow: 0 8px 32px rgba(0,0,0,.5);
+    }
+    .cta-bar span {
+      font-size: 13px; color: var(--muted); font-weight: 300;
+    }
+    .cta-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: .5; transform: scale(.75); }
+    }
+
+    /* ── Utilities ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+      to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+    }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: #222230; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #333345; }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      header { padding: 50px 5vw 0; }
+      .count-strip { gap: 20px; }
+      .cta-bar { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ambient -->
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <!-- header -->
+  <header>
+    <p class="eyebrow">Portfolio</p>
+    <h1>Selected<br>Work</h1>
+    <p class="subtitle">A curated collection of projects built with precision, creativity, and purpose.</p>
+  </header>
+
+  <!-- stats -->
+  <div class="count-strip">
+    <div class="count-item"><span class="num" id="proj-count">0</span><span class="label">Projects</span></div>
+    <div class="count-sep"></div>
+    <div class="count-item"><span class="num" id="tech-count">0</span><span class="label">Technologies</span></div>
+    <div class="count-sep"></div>
+    <div class="count-item"><span class="num" id="live-count">0</span><span class="label">Live Demos</span></div>
+  </div>
+
+  <!-- divider -->
+  <div class="divider"><span>// projects</span></div>
+
+  <!-- grid -->
+  <div class="projects-grid"></div>
+
+  <!-- floating CTA -->
+  <div class="cta-bar">
+    <span class="cta-dot"></span>
+    <span>Available for new projects</span>
+    <a href="https://api.whatsapp.com/send/?phone=%2B2342136621556&text=Hi%2C+I%27m+interested+in+working+with+you.+I+saw+your+portfolio+and+would+love+to+discuss+a+project%21&type=phone_number&app_absent=0"><span style="color:#fff;font-weight:500;">Let's collaborate →</span></a>
+  </div>
+
+  <!-- data -->
+   <script src="./project.js"></script>
+  <script>
+
+
+    // ── Render cards ──
+    const grid = document.querySelector('.projects-grid');
+    projects.forEach((project, i) => {
+      const card = document.createElement('div');
+      card.className = 'project-card';
+      card.style.transitionDelay = `${i * 80}ms`;
+      card.innerHTML = `
+        <div class="project-image">
+          <span class="card-num">${String(i+1).padStart(2,'0')}</span>
+          <img src="${project.imgUrl}" alt="${project.name}" loading="lazy"
+               onerror="this.style.background='#1a1a24';this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22%3E%3Crect width=%22100%22 height=%22100%22 fill=%22%231a1a24%22/%3E%3C/svg%3E'">
+        </div>
+        <div class="project-content">
+          <h3>${project.name}</h3>
+          <p>${project.description}</p>
+          <div class="project-tags">
+            ${project.tags.map(t => `<span>${t}</span>`).join('')}
+          </div>
+          <div class="project-links">
+            <a href="${project.url}" class="btn btn-primary" target="_blank" rel="noopener">
+              <i class="fas fa-external-link-alt"></i> Live Demo
+            </a>
+          </div>
+        </div>`;
+      grid.appendChild(card);
+    });
+
+    // ── IntersectionObserver reveal ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.project-card').forEach(c => observer.observe(c));
+
+    // ── Counter animation ──
+    function animCount(el, target, duration = 1200) {
+      const start = performance.now();
+      const update = (now) => {
+        const p = Math.min((now - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(ease * target);
+        if (p < 1) requestAnimationFrame(update);
+      };
+      requestAnimationFrame(update);
+    }
+
+    const allTechs = [...new Set(projects.flatMap(p => p.tags))];
+    setTimeout(() => {
+      animCount(document.getElementById('proj-count'), projects.length);
+      animCount(document.getElementById('tech-count'), allTechs.length);
+      animCount(document.getElementById('live-count'), projects.length);
+    }, 700);
+
+    // ── Subtle mouse parallax on blobs ──
+    document.addEventListener('mousemove', e => {
+      const mx = (e.clientX / window.innerWidth - .5) * 30;
+      const my = (e.clientY / window.innerHeight - .5) * 30;
+      document.querySelector('.blob-1').style.transform = `translate(${mx}px,${my}px)`;
+      document.querySelector('.blob-2').style.transform = `translate(${-mx}px,${-my}px)`;
+    });
+  </script>
+</body>
+</html>

@@ -1,5 +1,45 @@
 const projects = [
   {
+    name: 'EchoVibe Contact Gain',
+    description:
+      'EchoVibe is a smart contact exchange platform that allows users to share and collect WhatsApp contacts seamlessly with just one tap—no need to save manually or speak. It supports offline mode, one-click contact export to phonebooks, and encourages daily networking via a community-driven WhatsApp group.',
+    tags: [
+      'Html',
+      'Css',
+      'Javascript',
+      'Vercel',
+      'Supabase',
+      'Nodejs',
+      'Vercel Serverless Functions'
+    ],
+    imgUrl: './images/echovibe.png',
+    url: 'https://echovibe.vercel.app/'
+  },
+    {
+    name: 'MedLabPro Medical Laboratory Management System',
+    description:
+      'MedLabPro is a comprehensive software solution designed for medical laboratories to streamline operations, manage patient data, and enhance overall efficiency. It features a user-friendly interface, robust reporting capabilities, and seamless integration with existing laboratory information systems.',
+    tags: ['Html', 'Css', 'Javascript', 'PHP', 'SQL', 'Vercel'],
+    imgUrl: './images/MedLabPro Management System - Google Chrome 06-Jun-26 8_25_53 AM.png',
+    url: 'https://medlab-saas.vercel.app/'
+  },
+  {
+    name: 'Judydoesbraids',
+    description:
+      'JUDYDOESBRAIDS is a modern, SEO-optimized single-page website for a premium hair braiding business, styled with elegant black and gold branding. It features responsive design, a service showcase, dynamic gallery, and an interactive booking system. Optimized for performance, branding, and search visibility.',
+    tags: ['Html', 'Css', 'Javascript', 'PHP', 'SQL', 'Vercel'],
+    imgUrl: './images/judyhairs.jpg',
+    url: 'https://judydoesbraids.com/test'
+  },
+  {
+    name: 'University Search Portal (USP)',
+    description:
+      'A simple, responsive web app that allows users to search for universities worldwide using the Hipolabs Universities API. It fetches real-time university data by name and displays key details like university names and domains and also allow users to save universities',
+    tags: ['Html', 'Css', 'Javascript', 'PHP', 'MySql'],
+    imgUrl: './images/university.png',
+    url: '2421962.linux.studentwebserver.co.uk/universitysearchapi/index.php'
+  },
+  {
     name: 'HAPPINESS INSIDE ME',
     description:
       'Happiness Inside Me is a serene retreat nestled in the Lasne countryside, just 20 minutes from Brussels. It offers transformative workshops, meditations, and coaching sessions aimed at unlocking inner joy and personal growth. Whether in group settings or individual guidance, participants embark on journeys of self-discovery and empowerment. The retreat fosters a nurturing environment where individuals can reconnect with themselves and find lasting peace',
@@ -16,40 +56,8 @@ const projects = [
     url: 'https://atlanticobusinessdevelopments.vercel.app/'
   },
   {
-    name: 'EchoVibe Contact Gain',
-    description:
-      'EchoVibe is a smart contact exchange platform that allows users to share and collect WhatsApp contacts seamlessly with just one tap—no need to save manually or speak. It supports offline mode, one-click contact export to phonebooks, and encourages daily networking via a community-driven WhatsApp group.',
-    tags: [
-      'Html',
-      'Css',
-      'Javascript',
-      'Vercel',
-      'Supabase',
-      'Nodejs',
-      'Vercel Serverless Functions'
-    ],
-    imgUrl: './images/echovibe.png',
-    url: 'https://echovibe.vercel.app/'
-  },
-  {
-    name: 'University Search Portal (USP)',
-    description:
-      'A simple, responsive web app that allows users to search for universities worldwide using the Hipolabs Universities API. It fetches real-time university data by name and displays key details like university names and domains and also allow users to save universities',
-    tags: ['Html', 'Css', 'Javascript', 'PHP', 'MySql'],
-    imgUrl: './images/university.png',
-    url: '2421962.linux.studentwebserver.co.uk/universitysearchapi/index.php'
-  },
-  {
-    name: 'Judydoesbraids',
-    description:
-      'JUDYDOESBRAIDS is a modern, SEO-optimized single-page website for a premium hair braiding business, styled with elegant black and gold branding. It features responsive design, a service showcase, dynamic gallery, and an interactive booking system. Optimized for performance, branding, and search visibility.',
-    tags: ['Html', 'Css', 'Javascript', 'PHP', 'SQL', 'Vercel'],
-    imgUrl: './images/judyhairs.jpg',
-    url: 'https://judydoesbraids.com/test'
-  },
-  {
     name: 'Nigeria Business Portal',
-    description:'A modern redesign of the Nigeria Business Portal website aimed at improving user experience, visual appeal, and mobile responsiveness. The new design features a clean layout, faster performance, and intuitive navigation, making it easier for users to explore business resources and services. This rebrand enhances the platform’s credibility and positions it for better engagement and growth.',
+    description: 'A modern redesign of the Nigeria Business Portal website aimed at improving user experience, visual appeal, and mobile responsiveness. The new design features a clean layout, faster performance, and intuitive navigation, making it easier for users to explore business resources and services. This rebrand enhances the platform’s credibility and positions it for better engagement and growth.',
     tags: ['Html', 'Css', 'Javascript'],
     imgUrl: './images/ngieriaportal.jpg',
     url: 'https://nigeriabusinessportal.vercel.app/'

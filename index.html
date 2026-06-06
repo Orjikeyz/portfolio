@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
+    
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <link rel="stylesheet" href="main.css">
 </head>
@@ -79,12 +80,12 @@
           <p>I build exceptional digital experiences with modern technologies. Specializing in creating interactive,
             high-performance web applications with cutting-edge tools and frameworks.</p>
           <div class="hero-buttons">
-            <a href="#projects" class="btn btn-primary">View My Work</a>
+            <a href="project.html" class="btn btn-primary">View My Work</a>
             <a href="#" class="btn btn-outline">Download Resume</a>
           </div>
           <div class="social-icons">
-            <a href="https://github.com/Orjikeyz" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/amos-orji-79017519b/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
             <a href="https://wa.me/+2342136621556?text=Hi%2C%20I'm%20interested%20in%20working%20with%20you.%20I%20saw%20your%20portfolio%20and%20would%20love%20to%20discuss%20a%20project%21" aria-label="Whatsapp"><i class="fab fa-whatsapp"></i></a>
           </div>
         </div>
@@ -163,7 +164,7 @@
 
         </div>
         <div class="projects-more" data-aos="fade-up">
-          <a href="#" class="btn btn-outline">View All Projects</a>
+          <a href="project.html" class="btn btn-outline">View All Projects</a>
         </div>
       </div>
     </section>
@@ -300,7 +301,7 @@
     let projectGrid = document.querySelector(".projects-grid")
 
     projectGrid.innerHTML = ""
-      projects.forEach(project => {
+      projects.slice(0, 6).forEach(project => {
           projectGrid.innerHTML += `
                     <div class="project-card" data-aos="fade-up">
             <div class="project-image">

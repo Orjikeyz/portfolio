@@ -1,14 +1,14 @@
 /* Base Styles and Variables */
 :root {
-  --primary-color: #9c27b0;
-  --primary-light: #d05ce3;
-  --primary-dark: #6a0080;
+  --primary-color: #2765b0;
+  --primary-light: #5c9be3;
+  --primary-dark: #004480;
   --secondary-color: #2196f3;
   --secondary-light: #6ec6ff;
   --secondary-dark: #0069c0;
-  --accent-color: #ff4081;
-  --accent-light: #ff79b0;
-  --accent-dark: #c60055;
+  --accent-color: #408cff;
+  --accent-light: #79b3ff;
+  --accent-dark: #0052c6;
   --text-color: #333333;
   --text-light: #757575;
   --background-color: #f8f9fa;
@@ -42,6 +42,7 @@
 /* Global Styles */
 * {
   margin: 0;
+  font-family: 'DM Sans', sans-serif;
   padding: 0;
   box-sizing: border-box;
 }
@@ -681,7 +682,7 @@ header .container {
 }
 
 .project-tags span {
-  background-color: rgba(var(--primary-color-rgb), 0.1);
+  background-color: rgba(33, 48, 123, 0.152);
   color: var(--primary-color);
   padding: 0.25rem 0.75rem;
   border-radius: 20px;
