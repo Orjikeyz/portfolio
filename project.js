@@ -1,21 +1,22 @@
 const projects = [
   {
-    name: 'EchoVibe Contact Gain',
+    name: 'Linko.ng',
     description:
-      'EchoVibe is a smart contact exchange platform that allows users to share and collect WhatsApp contacts seamlessly with just one tap—no need to save manually or speak. It supports offline mode, one-click contact export to phonebooks, and encourages daily networking via a community-driven WhatsApp group.',
-    tags: [
-      'Html',
-      'Css',
-      'Javascript',
-      'Vercel',
-      'Supabase',
-      'Nodejs',
-      'Vercel Serverless Functions'
-    ],
-    imgUrl: './images/echovibe.png',
-    url: 'https://echovibe.vercel.app/'
+      'Linko.ng is a vendor commerce platform that enables businesses to create online storefronts, showcase products, and receive orders directly through WhatsApp. It provides shareable store links, product management, vendor analytics, and a mobile-first shopping experience without the complexity of traditional e-commerce checkout.',
+    tags: ['Html', 'Css', 'Javascript', 'Nodejs', 'MongoDb', 'PHP', 'Vercel', 'Render'],
+    imgUrl: './images/Vendor Dashboard - Linko.ng - Google Chrome 9_21_2026 7_31_25 AM.png',
+    url: 'https://linko-ng.vercel.app/'
   },
-    {
+  {
+    name: 'Church Attendance Portal',
+    description:
+      'A church attendance management portal designed to simplify attendance tracking, member records, and follow-up activities. It allows administrators to easily mark and monitor attendance, view attendance trends and analytics, identify members who may need follow-up, and gain insights into church participation through an intuitive dashboard.',
+    tags: ['Html', 'Css', 'Javascript', 'PHP', 'Mysql'],
+    imgUrl: './images/church attendance image.png',
+    url: 'https://project.codeph.ng/churchattendance/offline/'
+  },
+
+  {
     name: 'MedLabPro Medical Laboratory Management System',
     description:
       'MedLabPro is a comprehensive software solution designed for medical laboratories to streamline operations, manage patient data, and enhance overall efficiency. It features a user-friendly interface, robust reporting capabilities, and seamless integration with existing laboratory information systems.',
@@ -24,12 +25,21 @@ const projects = [
     url: 'https://medlab-saas.vercel.app/'
   },
   {
+    name: 'EchoVibe Contact Gain',
+    description:
+      'EchoVibe is a smart contact exchange platform that allows users to share and collect WhatsApp contacts seamlessly with just one tap—no need to save manually or speak. It supports offline mode, one-click contact export to phonebooks, and encourages daily networking via a community-driven WhatsApp group.',
+    tags: ['Html', 'Css', 'Javascript', 'Vercel', 'Supabase', 'Nodejs', 'Vercel Serverless Functions'],
+    imgUrl: './images/echovibe.png',
+    url: 'https://echovibe.vercel.app/'
+  },
+
+  {
     name: 'Judydoesbraids',
     description:
       'JUDYDOESBRAIDS is a modern, SEO-optimized single-page website for a premium hair braiding business, styled with elegant black and gold branding. It features responsive design, a service showcase, dynamic gallery, and an interactive booking system. Optimized for performance, branding, and search visibility.',
     tags: ['Html', 'Css', 'Javascript', 'PHP', 'SQL', 'Vercel'],
     imgUrl: './images/judyhairs.jpg',
-    url: 'https://judydoesbraids.com/test'
+    url: 'https://project.codeph.ng/judydoesbraid/home'
   },
   {
     name: 'University Search Portal (USP)',
