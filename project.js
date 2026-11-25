@@ -72,4 +72,5 @@ const projects = [
     imgUrl: './images/ngieriaportal.jpg',
     url: 'https://nigeriabusinessportal.vercel.app/'
   }
+  
 ]
